@@ -78,29 +78,35 @@ function Fuzzy() {
     <div className="flex-1 bg-gray-600 p-6">
       <div className="flex flex-col justify-center items-center">
         {/* Slider */}
-        <div className="flex flex-col items-center space-y-4 p-6 w-3/5">
+        <div className="flex flex-col items-center space-y-4 p-6 w-4/5">
           <Slider
             name="Permintaan"
             min={minPermintaan}
             max={maxPermintaan}
             value={permintaanValue}
-            onChange={(v) => setPerminValue(v)}
+            onChange={(v) =>
+              setPerminValue(
+                Math.min(maxPermintaan, Math.max(minPermintaan, v)),
+              )
+            }
           />
           <Slider
             name="Persediaan"
             min={minPersediaan}
             max={maxPersediaan}
             value={persediaanValue}
-            onChange={(v) => setPersedValue(v)}
+            onChange={(v) =>
+              setPersedValue(
+                Math.min(maxPersediaan, Math.max(minPersediaan, v)),
+              )
+            }
           />
         </div>
 
         {/* defuzzyfikasi */}
         <div className="p-3 bg-green-200">
           <p>Hasil Produksi maxsimal adalah {defuzzyValue} unit batu bara</p>
-          {predikatValue.map((v) => (
-            <p>{v.toFixed(3)}</p>
-          ))}
+          {false && predikatValue.map((v) => <p>{v.toFixed(3)}</p>)}
         </div>
       </div>
     </div>

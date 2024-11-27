@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { dataTabel } from "./Data";
+import { dataTabel as data } from "./Data";
 
 function Sidebar() {
   const [isShowTable, setIsShowTable] = useState(false);
@@ -32,20 +32,14 @@ function Sidebar() {
                 </tr>
               </thead>
               <tbody>
-                {dataTabel.Bulan.map((v, i) => (
+                {data.Bulan.map((v, i) => (
                   <tr>
                     <td className="border text-black">
-                      {v} ({dataTabel.Tahun})
+                      {v} ({data.Tahun})
                     </td>
-                    <td className="border text-black">
-                      {dataTabel.Permintaan[i]}
-                    </td>
-                    <td className="border text-black">
-                      {dataTabel.Persediaan[i]}
-                    </td>
-                    <td className="border text-black">
-                      {dataTabel.Produksi[i]}
-                    </td>
+                    <td className="border text-black">{data.Permintaan[i]}</td>
+                    <td className="border text-black">{data.Persediaan[i]}</td>
+                    <td className="border text-black">{data.Produksi[i]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -58,17 +52,17 @@ function Sidebar() {
         <h3>Penentuan Variable</h3>
         <h5 className="mt-2 font-bold">Input</h5>
         <p>
-          Permintaan ({Math.min(...dataTabel.Permintaan)} -{" "}
-          {Math.max(...dataTabel.Permintaan)})
+          Permintaan ({Math.min(...data.Permintaan)} -{" "}
+          {Math.max(...data.Permintaan)})
         </p>
         <p>
-          Persediaan ({Math.min(...dataTabel.Persediaan)} -{" "}
-          {Math.max(...dataTabel.Persediaan)})
+          Persediaan ({Math.min(...data.Persediaan)} -{" "}
+          {Math.max(...data.Persediaan)})
         </p>
         <h5 className="mt-2 font-bold">Output</h5>
         <p>
-          Permintaan ({Math.min(...dataTabel.Produksi)} -{" "}
-          {Math.max(...dataTabel.Produksi)})
+          Permintaan ({Math.min(...data.Produksi)} -{" "}
+          {Math.max(...data.Produksi)})
         </p>
       </div>
     </div>
