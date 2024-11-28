@@ -6,7 +6,7 @@ function Sidebar() {
 
   return (
     <div
-      className={`${isShowTable ? "w-96" : "w-64"} bg-gray-800 text-white p-4 transition-all duration-500 ease-in-out`}
+      className={`${isShowTable ? "w-96" : "w-64"} bg-gray-800 text-white p-4 transition-all duration-700 ease-in-out`}
     >
       <h2 className="text-lg font-bold mb-4">Logika Samar</h2>
       <div>
@@ -14,7 +14,7 @@ function Sidebar() {
           onClick={() => setIsShowTable(!isShowTable)}
           className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded mb-4"
         >
-          {!isShowTable ? "Hide Table" : "Show Table"}
+          {isShowTable ? "Hide Table" : "Show Table"}
         </button>
         <div
           className={`transition-all duration-500 ease-in-out overflow-hidden ${
